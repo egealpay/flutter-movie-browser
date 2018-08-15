@@ -1,74 +1,71 @@
-/*import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter_movie_browser/network/response/detail/MovieDetailsResponse.dart';
+import 'package:flutter_movie_browser/network/response/upcoming/UpcomingMovies.dart';
 
 class FavoriteMovieDatabase {
-  static final FavoriteMovieDatabase _favoriteMovieDatabase = FavoriteMovieDatabase
-      ._internal();
-
-  Database db;
-  bool didInit = false;
+  static Database _db;
 
   final String TABLE_NAME = "FAVORITE_MOVIE_TABLE";
   final String ID = "id";
   final String TITLE = "title";
   final String OVERVIEW = "overview";
   final String POSTER_PATH = "poster_path";
-  final String GENRES = "genres";
-  final String RELEASE_DATE = "release_date";
-  final String RUNTIME = "runtime";
-  final String BUDGET = "budget";
 
-  static FavoriteMovieDatabase get() => _favoriteMovieDatabase;
-
-  FavoriteMovieDatabase._internal();
-
-  Future<Database> _getDb() async{
-    if(!didInit) await _init();
-    return db;
+  Future<Database> get db async {
+    if (_db != null) return _db;
+    _db = await initDb();
+    return _db;
   }
 
-  Future _init() async {
-    // Get a location using path_provider
+  initDb() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, "favoritemovie.db");
-    db = await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async {
-          // When creating the db, create the table
-          await db.execute(
-              "CREATE TABLE $TABLE_NAME ("
-                  "$ID STRING PRIMARY KEY,"
-                  "$TITLE TEXT,"
-                  "$OVERVIEW TEXT,"
-                  "$POSTER_PATH TEXT,"
-                  "$GENRES TEXT,"
-                  "$RELEASE_DATE TEXT,"
-                  "$RUNTIME INTEGER,"
-                  "$BUDGET INTEGER"
-                  ")");
-        });
+    String path = join(documentsDirectory.path, "favorite_movie.db");
+    var theDb = await openDatabase(path, version: 1, onCreate: _onCreate);
+    return theDb;
+  }
+
+  Future _onCreate(Database db, int version) async {
+    await db.execute("CREATE TABLE $TABLE_NAME ("
+        "$ID INTEGER PRIMARY KEY,"
+        "$TITLE TEXT,"
+        "$OVERVIEW TEXT,"
+        "$POSTER_PATH TEXT"
+        ")");
   }
 
   /// Get all books with ids, will return a list with all the books found
-  Future<List<MovieDetailsResponse>> getBooks(List<String> ids) async{
-    var db = await _getDb();
-    // Building SELECT * FROM TABLE WHERE ID IN (id1, id2, ..., idn)
-    var idsString = ids.map((it) => '"$it"').join(',');
-    var result = await db.rawQuery('SELECT * FROM $tableName WHERE ${Book.db_id} IN ($idsString)');
-    List<Book> books = [];
-    for(Map<String, dynamic> item in result) {
-      books.add(new Book.fromMap(item));
+  Future<List<UpcomingMovies>> getAllFavoriteMovies() async {
+    var dbHelper = await db;
+    var result = await dbHelper.rawQuery('SELECT * FROM $TABLE_NAME');
+    List<UpcomingMovies> favoriteMovies = [];
+    for(int i = 0; i < result.length; i++) {
+      favoriteMovies.add(
+          UpcomingMovies(
+              id: result[i][ID],
+              title: result[i][TITLE],
+              overview:  result[i][OVERVIEW],
+              posterPath: result[i][POSTER_PATH]
+          )
+      );
     }
-    return books;
+    return favoriteMovies;
+  }
+
+  Future<int> addFavoriteMovie(
+      int id, String title, String overview, String posterPath) async {
+    var dbHelper = await db;
+    var result = await dbHelper.rawInsert(
+        "INSERT INTO $TABLE_NAME($ID, $TITLE, $OVERVIEW, $POSTER_PATH) VALUES(?, ?, ?, ?)",
+        [id, title, overview, posterPath]);
+    return result;
   }
 
   Future close() async {
-    var db = await _getDb();
-    return db.close();
+    var dbHelper = await db;
+    return dbHelper.close();
   }
-
-}*/
+}

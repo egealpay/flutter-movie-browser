@@ -6,6 +6,8 @@ import 'package:flutter_movie_browser/util/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share/share.dart';
 
+import 'package:flutter_movie_browser/FavoriteMovieDatabase.dart';
+
 class MovieDetailsScreen extends StatelessWidget {
   final int id;
 
@@ -22,7 +24,7 @@ class MovieDetailsScreen extends StatelessWidget {
             }
 
             return snapshot.hasData
-                ? ActivityScreen(snapshot.data)
+                ? ActivityScreen(snapshot.data, id)
                 : Center(child: CircularProgressIndicator());
           }),
     );
@@ -31,13 +33,14 @@ class MovieDetailsScreen extends StatelessWidget {
 
 class ActivityScreen extends StatelessWidget {
   final MovieDetailsResponse movieDetails;
+  final int id;
 
-  ActivityScreen(this.movieDetails);
+  ActivityScreen(this.movieDetails, this.id);
 
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
-        body: DetailsWidget(movieDetails),
+        body: DetailsWidget(movieDetails, id),
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
@@ -61,8 +64,11 @@ class ActivityScreen extends StatelessWidget {
 
 class DetailsWidget extends StatelessWidget {
   final MovieDetailsResponse movieDetails;
+  final int id;
 
-  DetailsWidget(this.movieDetails);
+  var favoriteMovieDatabase = FavoriteMovieDatabase();
+
+  DetailsWidget(this.movieDetails, this.id);
 
   String getGenres() {
     String genres = "| ";
@@ -84,6 +90,7 @@ class DetailsWidget extends StatelessWidget {
                 child: Text(getGenres()), margin: EdgeInsets.only(bottom: 8.0)),
             Container(
                 margin: EdgeInsets.only(bottom: 8.0),
+                height: 120.0,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -91,13 +98,13 @@ class DetailsWidget extends StatelessWidget {
                         imageUrl:
                             "https://image.tmdb.org/t/p/w500/${movieDetails
                             .posterPath}",
-                        height: 120.0,
                         fit: BoxFit.fill),
                     Expanded(
                         child: Container(
                             margin: EdgeInsets.only(left: 8.0),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly, //NOT WORKING!
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              //NOT WORKING!
                               children: <Widget>[
                                 generateRow(
                                     Strings.released, movieDetails.releaseDate),
@@ -134,7 +141,19 @@ class DetailsWidget extends StatelessWidget {
                             .imdbId}");
                       },
                     ),
-                    generateBottomButtons(Icons.favorite, "FAVORITE")
+                    GestureDetector(
+                      onTap: () {
+                        favoriteMovieDatabase.addFavoriteMovie(
+                            id,
+                            movieDetails.title,
+                            movieDetails.overview,
+                            movieDetails.posterPath,
+                        );
+                        final snackbar = SnackBar(content: Text("Added"));
+                        Scaffold.of(context).showSnackBar(snackbar);
+                      },
+                        child: generateBottomButtons(Icons.favorite, "FAVORITE")
+                    )
                   ],
                 ))
           ],
