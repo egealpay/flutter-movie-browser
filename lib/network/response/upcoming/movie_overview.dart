@@ -1,13 +1,13 @@
-class UpcomingMovies {
+class MovieOverview {
   final String title;
   final int id;
   final String posterPath;
   final String overview;
 
-  UpcomingMovies({this.id, this.title, this.overview, this.posterPath});
+  MovieOverview({this.id, this.title, this.overview, this.posterPath});
 
-  factory UpcomingMovies.fromJson(Map<String, dynamic> json) {
-    return UpcomingMovies(
+  factory MovieOverview.fromJson(Map<String, dynamic> json) {
+    return MovieOverview(
         id: json["id"],
         title: json["title"],
         overview: json["overview"],

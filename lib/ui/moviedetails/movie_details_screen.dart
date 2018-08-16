@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_browser/network/Requests.dart';
-import 'package:flutter_movie_browser/network/response/detail/MovieDetailsResponse.dart';
+import 'package:flutter_movie_browser/network/requests.dart';
+import 'package:flutter_movie_browser/network/response/detail/movie_details_response.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_movie_browser/util/strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share/share.dart';
 
-import 'package:flutter_movie_browser/FavoriteMovieDatabase.dart';
+import 'package:flutter_movie_browser/favorite_movie_database.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int id;

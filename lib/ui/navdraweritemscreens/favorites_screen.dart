@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_browser/FavoriteMovieDatabase.dart';
+import 'package:flutter_movie_browser/favorite_movie_database.dart';
 import 'package:flutter_movie_browser/main.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class FavoritesScreen extends StatelessWidget {
               return Center(child: Text("Error Occured"));
             }
             return snapshot.hasData
-                ? UpcomingsListView(snapshot.data)
+                ? MovieOverviewListView(snapshot.data)
                 : Center(child: CircularProgressIndicator());
           }
       ),

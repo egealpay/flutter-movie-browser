@@ -4,7 +4,7 @@ import 'package:path/path.dart';
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter_movie_browser/network/response/upcoming/UpcomingMovies.dart';
+import 'package:flutter_movie_browser/network/response/upcoming/movie_overview.dart';
 
 class FavoriteMovieDatabase {
   static Database _db;
@@ -37,13 +37,13 @@ class FavoriteMovieDatabase {
         ")");
   }
 
-  Future<List<UpcomingMovies>> getAllFavoriteMovies() async {
+  Future<List<MovieOverview>> getAllFavoriteMovies() async {
     var dbHelper = await db;
     var result = await dbHelper.rawQuery('SELECT * FROM $TABLE_NAME');
-    List<UpcomingMovies> favoriteMovies = [];
+    List<MovieOverview> favoriteMovies = [];
     for(int i = 0; i < result.length; i++) {
       favoriteMovies.add(
-          UpcomingMovies(
+          MovieOverview(
               id: result[i][ID],
               title: result[i][TITLE],
               overview:  result[i][OVERVIEW],

@@ -1,4 +1,4 @@
-import 'package:flutter_movie_browser/network/response/detail/Genre.dart';
+import 'package:flutter_movie_browser/network/response/detail/genre.dart';
 
 class MovieDetailsResponse {
   final String title;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_browser/util/strings.dart';
-import 'package:flutter_movie_browser/ui/navdraweritemscreens/FavoritesScreen.dart';
-import 'package:flutter_movie_browser/ui/navdraweritemscreens/SettingsScreen.dart';
-import 'package:flutter_movie_browser/ui/navdraweritemscreens/LicencesScreen.dart';
-import 'package:flutter_movie_browser/ui/moviedetails/MovieDetailsScreen.dart';
-import 'package:flutter_movie_browser/network/response/upcoming/UpcomingMoviesResponse.dart';
-import 'package:flutter_movie_browser/network/response/upcoming/UpcomingMovies.dart';
-import 'package:flutter_movie_browser/network/Requests.dart';
+import 'package:flutter_movie_browser/ui/navdraweritemscreens/favorites_screen.dart';
+import 'package:flutter_movie_browser/ui/navdraweritemscreens/settings_screen.dart';
+import 'package:flutter_movie_browser/ui/navdraweritemscreens/licences_screen.dart';
+import 'package:flutter_movie_browser/ui/moviedetails/movie_details_screen.dart';
+import 'package:flutter_movie_browser/network/response/upcoming/movie_overview_response.dart';
+import 'package:flutter_movie_browser/network/response/upcoming/movie_overview.dart';
+import 'package:flutter_movie_browser/network/requests.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 void main() => runApp(MovieBrowserApp());
@@ -43,51 +43,51 @@ class _MovieBrowserAppState extends State<MovieBrowserApp> {
               body: Container(
                 child: TabBarView(children: [
 
-                  FutureBuilder<UpcomingMoviesResponse>(
+                  FutureBuilder<MovieOverviewResponse>(
                       future: Requests.getUpcomingMovies(),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
                           return Text("Error Occured");
                         }
                         return snapshot.hasData
-                            ? UpcomingsListView(
-                                snapshot.data.upcomingMoviesList)
+                            ? MovieOverviewListView(
+                                snapshot.data.movieOverviewList)
                             : Center(child: CircularProgressIndicator());
                       }),
 
-                  FutureBuilder<UpcomingMoviesResponse>(
+                  FutureBuilder<MovieOverviewResponse>(
                       future: Requests.getNowPlayingMovies(),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
                           return Text("Error Occured");
                         }
                         return snapshot.hasData
-                            ? UpcomingsListView(
-                            snapshot.data.upcomingMoviesList)
+                            ? MovieOverviewListView(
+                            snapshot.data.movieOverviewList)
                             : Center(child: CircularProgressIndicator());
                       }),
 
-                  FutureBuilder<UpcomingMoviesResponse>(
+                  FutureBuilder<MovieOverviewResponse>(
                       future: Requests.getPopularMovies(),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
                           return Text("Error Occured");
                         }
                         return snapshot.hasData
-                            ? UpcomingsListView(
-                            snapshot.data.upcomingMoviesList)
+                            ? MovieOverviewListView(
+                            snapshot.data.movieOverviewList)
                             : Center(child: CircularProgressIndicator());
                       }),
 
-                  FutureBuilder<UpcomingMoviesResponse>(
+                  FutureBuilder<MovieOverviewResponse>(
                       future: Requests.getTopRatingMovies(),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
                           return Text("Error Occured");
                         }
                         return snapshot.hasData
-                            ? UpcomingsListView(
-                            snapshot.data.upcomingMoviesList)
+                            ? MovieOverviewListView(
+                            snapshot.data.movieOverviewList)
                             : Center(child: CircularProgressIndicator());
                       }),
 
@@ -97,15 +97,15 @@ class _MovieBrowserAppState extends State<MovieBrowserApp> {
   }
 }
 
-class UpcomingsListView extends StatelessWidget {
-  List<UpcomingMovies> upcomingMoviesList = <UpcomingMovies>[];
+class MovieOverviewListView extends StatelessWidget {
+  List<MovieOverview> movieOverviewList = <MovieOverview>[];
 
-  UpcomingsListView(this.upcomingMoviesList);
+  MovieOverviewListView(this.movieOverviewList);
 
   @override
   Widget build(BuildContext context) {
     final Iterable<Container> customListRow =
-        upcomingMoviesList.map((UpcomingMovies movie) {
+    movieOverviewList.map((MovieOverview movie) {
       return Container(
           margin: EdgeInsets.all(8.0),
           child: GestureDetector(
