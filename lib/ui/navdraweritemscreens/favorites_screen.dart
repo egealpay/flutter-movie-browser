@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_browser/favorite_movie_database.dart';
-import 'package:flutter_movie_browser/main.dart';
+import 'package:flutter_movie_browser/database/favorite_movie_database.dart';
+import 'package:flutter_movie_browser/ui/tab/base_tab.dart';
 
 class FavoritesScreen extends StatelessWidget {
   var favoriteMovieDatabase = FavoriteMovieDatabase();

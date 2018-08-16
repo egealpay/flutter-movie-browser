@@ -1,6 +1,10 @@
 import 'dart:async';
+
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter_movie_browser/network/response/upcoming/movie_overview_response.dart';
 import 'package:flutter_movie_browser/network/response/detail/movie_details_response.dart';
@@ -68,6 +72,15 @@ class Requests {
       return MovieDetailsResponse.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed to load post');
+    }
+  }
+
+  static Future openIMDBPage(String imdbId) async {
+    const url = 'https://www.imdb.com/title/';
+    if (await canLaunch(url)) {
+      await launch("$url$imdbId");
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }
