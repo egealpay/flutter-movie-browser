@@ -37,7 +37,6 @@ class FavoriteMovieDatabase {
         ")");
   }
 
-  /// Get all books with ids, will return a list with all the books found
   Future<List<UpcomingMovies>> getAllFavoriteMovies() async {
     var dbHelper = await db;
     var result = await dbHelper.rawQuery('SELECT * FROM $TABLE_NAME');

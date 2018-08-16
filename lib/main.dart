@@ -20,32 +20,80 @@ class _MovieBrowserAppState extends State<MovieBrowserApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Movie Browser",
-      home: Scaffold(
-        drawer: NavigationDrawer(),
-        appBar: AppBar(
-          title: Text("Movie Browser"),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            )
-          ],
-        ),
-        body: Container(
-          child: FutureBuilder<UpcomingMoviesResponse>(
-              future: Requests.getUpcomingMovies(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return Text("Error Occured");
-                }
-                return snapshot.hasData
-                    ? UpcomingsListView(snapshot.data.upcomingMoviesList)
-                    : Center(child: CircularProgressIndicator());
-              }),
-        ),
-      ),
-    );
+        title: "Movie Browser",
+        home: DefaultTabController(
+          length: 4,
+          child: Scaffold(
+              drawer: NavigationDrawer(),
+              appBar: AppBar(
+                title: Text("Movie Browser"),
+                actions: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  )
+                ],
+                bottom: TabBar(tabs: [
+                  Tab(text: "Upcoming"),
+                  Tab(text: "Now Playing"),
+                  Tab(text: "Popular"),
+                  Tab(text: "Top Rating")
+                ]),
+              ),
+              body: Container(
+                child: TabBarView(children: [
+
+                  FutureBuilder<UpcomingMoviesResponse>(
+                      future: Requests.getUpcomingMovies(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Text("Error Occured");
+                        }
+                        return snapshot.hasData
+                            ? UpcomingsListView(
+                                snapshot.data.upcomingMoviesList)
+                            : Center(child: CircularProgressIndicator());
+                      }),
+
+                  FutureBuilder<UpcomingMoviesResponse>(
+                      future: Requests.getNowPlayingMovies(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Text("Error Occured");
+                        }
+                        return snapshot.hasData
+                            ? UpcomingsListView(
+                            snapshot.data.upcomingMoviesList)
+                            : Center(child: CircularProgressIndicator());
+                      }),
+
+                  FutureBuilder<UpcomingMoviesResponse>(
+                      future: Requests.getPopularMovies(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Text("Error Occured");
+                        }
+                        return snapshot.hasData
+                            ? UpcomingsListView(
+                            snapshot.data.upcomingMoviesList)
+                            : Center(child: CircularProgressIndicator());
+                      }),
+
+                  FutureBuilder<UpcomingMoviesResponse>(
+                      future: Requests.getTopRatingMovies(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Text("Error Occured");
+                        }
+                        return snapshot.hasData
+                            ? UpcomingsListView(
+                            snapshot.data.upcomingMoviesList)
+                            : Center(child: CircularProgressIndicator());
+                      }),
+
+                ]),
+              )),
+        ));
   }
 }
 
@@ -63,9 +111,9 @@ class UpcomingsListView extends StatelessWidget {
           child: GestureDetector(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(
-                      builder: (context) => MovieDetailsScreen(movie.id)
-                ));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MovieDetailsScreen(movie.id)));
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

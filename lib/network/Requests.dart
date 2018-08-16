@@ -23,6 +23,42 @@ class Requests {
     }
   }
 
+  static Future<UpcomingMoviesResponse> getNowPlayingMovies() async {
+    String url = Uri.https(
+        BASE_URL, "/3/movie/now_playing", {API_KEY_KEY: TMDB_API_KEY}).toString();
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      return UpcomingMoviesResponse.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
+
+  static Future<UpcomingMoviesResponse> getPopularMovies() async {
+    String url = Uri.https(
+        BASE_URL, "/3/movie/popular", {API_KEY_KEY: TMDB_API_KEY}).toString();
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      return UpcomingMoviesResponse.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
+
+  static Future<UpcomingMoviesResponse> getTopRatingMovies() async {
+    String url = Uri.https(
+        BASE_URL, "/3/movie/top_rated", {API_KEY_KEY: TMDB_API_KEY}).toString();
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      return UpcomingMoviesResponse.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
+
   static Future<MovieDetailsResponse> getMovieDetails(String movieID) async {
     String url = Uri.https(
         BASE_URL, "/3/movie/$movieID", {API_KEY_KEY: TMDB_API_KEY}).toString();

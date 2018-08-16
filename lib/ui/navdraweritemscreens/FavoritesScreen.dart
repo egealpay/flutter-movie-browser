@@ -15,7 +15,7 @@ class FavoritesScreen extends StatelessWidget {
           future: favoriteMovieDatabase.getAllFavoriteMovies(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              return Text("Error Occured");
+              return Center(child: Text("Error Occured"));
             }
             return snapshot.hasData
                 ? UpcomingsListView(snapshot.data)
