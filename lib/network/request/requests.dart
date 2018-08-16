@@ -15,9 +15,11 @@ class Requests {
   static const String TMDB_API_KEY = "65dd7f149cc5dc1f35fbedbc35c534ed";
   static final String API_KEY_KEY = "api_key";
 
-  static Future<MovieOverviewResponse> getUpcomingMovies() async {
+  static final String PAGE_KEY = "page";
+
+  static Future<MovieOverviewResponse> getUpcomingMovies(int page) async {
     String url = Uri.https(
-        BASE_URL, "/3/movie/upcoming", {API_KEY_KEY: TMDB_API_KEY}).toString();
+        BASE_URL, "/3/movie/upcoming", {API_KEY_KEY: TMDB_API_KEY, PAGE_KEY: page.toString()}).toString();
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -27,9 +29,9 @@ class Requests {
     }
   }
 
-  static Future<MovieOverviewResponse> getNowPlayingMovies() async {
+  static Future<MovieOverviewResponse> getNowPlayingMovies(int page) async {
     String url = Uri.https(
-        BASE_URL, "/3/movie/now_playing", {API_KEY_KEY: TMDB_API_KEY}).toString();
+        BASE_URL, "/3/movie/now_playing", {API_KEY_KEY: TMDB_API_KEY, PAGE_KEY: page.toString()}).toString();
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -39,9 +41,9 @@ class Requests {
     }
   }
 
-  static Future<MovieOverviewResponse> getPopularMovies() async {
+  static Future<MovieOverviewResponse> getPopularMovies(int page) async {
     String url = Uri.https(
-        BASE_URL, "/3/movie/popular", {API_KEY_KEY: TMDB_API_KEY}).toString();
+        BASE_URL, "/3/movie/popular", {API_KEY_KEY: TMDB_API_KEY, PAGE_KEY: page.toString()}).toString();
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -51,9 +53,9 @@ class Requests {
     }
   }
 
-  static Future<MovieOverviewResponse> getTopRatingMovies() async {
+  static Future<MovieOverviewResponse> getTopRatingMovies(int page) async {
     String url = Uri.https(
-        BASE_URL, "/3/movie/top_rated", {API_KEY_KEY: TMDB_API_KEY}).toString();
+        BASE_URL, "/3/movie/top_rated", {API_KEY_KEY: TMDB_API_KEY, PAGE_KEY: page.toString()}).toString();
     final response = await http.get(url);
 
     if (response.statusCode == 200) {

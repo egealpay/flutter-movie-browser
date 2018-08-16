@@ -8,13 +8,13 @@ class TopRatingTab extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return FutureBuilder<MovieOverviewResponse>(
-        future: Requests.getTopRatingMovies(),
+        future: Requests.getTopRatingMovies(1),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Text("Error Occured");
           }
           return snapshot.hasData
-              ? MovieOverviewListView(snapshot.data.movieOverviewList)
+              ? MovieOverviewListView(snapshot.data.movieOverviewList, "TOPRATING")
               : Center(child: CircularProgressIndicator());
         });
   }

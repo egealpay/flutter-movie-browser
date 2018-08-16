@@ -7,13 +7,13 @@ class NowPlayingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<MovieOverviewResponse>(
-        future: Requests.getNowPlayingMovies(),
+        future: Requests.getNowPlayingMovies(1),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Text("Error Occured");
           }
           return snapshot.hasData
-              ? MovieOverviewListView(snapshot.data.movieOverviewList)
+              ? MovieOverviewListView(snapshot.data.movieOverviewList, "NOWPLAYING")
               : Center(child: CircularProgressIndicator());
         });
   }

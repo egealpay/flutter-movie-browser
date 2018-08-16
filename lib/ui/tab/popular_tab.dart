@@ -7,13 +7,13 @@ class PopularTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<MovieOverviewResponse>(
-        future: Requests.getPopularMovies(),
+        future: Requests.getPopularMovies(1),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Text("Error Occured");
           }
           return snapshot.hasData
-              ? MovieOverviewListView(snapshot.data.movieOverviewList)
+              ? MovieOverviewListView(snapshot.data.movieOverviewList, "POPULAR")
               : Center(child: CircularProgressIndicator());
         });
   }

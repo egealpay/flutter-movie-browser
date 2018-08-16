@@ -63,6 +63,12 @@ class FavoriteMovieDatabase {
     return result;
   }
 
+  checkMovieExist(int id) async {
+    var dbHelper = await db;
+    var result = await dbHelper.rawQuery("SELECT * FROM $TABLE_NAME WHERE $ID = ?", [id]);
+    return result.length;
+  }
+
   Future close() async {
     var dbHelper = await db;
     return dbHelper.close();

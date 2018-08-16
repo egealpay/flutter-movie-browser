@@ -18,7 +18,7 @@ class FavoritesScreen extends StatelessWidget {
               return Center(child: Text("Error Occured"));
             }
             return snapshot.hasData
-                ? MovieOverviewListView(snapshot.data)
+                ? MovieOverviewListView(snapshot.data, "FAVORITE")
                 : Center(child: CircularProgressIndicator());
           }
       ),
