@@ -7,13 +7,7 @@
     <list default="true" id="7ef33b38-9479-4b4d-a345-5987067ccb66" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/lib/database/favorite_movie_database.dart" afterPath="$PROJECT_DIR$/lib/database/favorite_movie_database.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/network/request/requests.dart" afterPath="$PROJECT_DIR$/lib/network/request/requests.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/navdraweritemscreens/favorites_screen.dart" afterPath="$PROJECT_DIR$/lib/ui/navdraweritemscreens/favorites_screen.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/tab/base_tab.dart" afterPath="$PROJECT_DIR$/lib/ui/tab/base_tab.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/tab/now_playing_tab.dart" afterPath="$PROJECT_DIR$/lib/ui/tab/now_playing_tab.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/tab/popular_tab.dart" afterPath="$PROJECT_DIR$/lib/ui/tab/popular_tab.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/tab/top_rating_tab.dart" afterPath="$PROJECT_DIR$/lib/ui/tab/top_rating_tab.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/tab/upcoming_tab.dart" afterPath="$PROJECT_DIR$/lib/ui/tab/upcoming_tab.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart" afterPath="$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -31,33 +25,35 @@
       <file leaf-file-name="favorite_movie_database.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/database/favorite_movie_database.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state relative-caret-position="402">
+              <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_tab.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base_tab.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/ui/tab/base_tab.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="127" column="24" lean-forward="false" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
+            <state relative-caret-position="77">
+              <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#4549#4768#0" expanded="false" />
-                <element signature="e#4819#5079#0" expanded="false" />
+                <element signature="e#4252#4471#0" expanded="false" />
+                <element signature="e#4522#4782#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="favorites_screen.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/ui/navdraweritemscreens/favorites_screen.dart">
+      <file leaf-file-name="bottom_buttons.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="367">
+              <caret line="97" column="85" lean-forward="false" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="85" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,9 +121,7 @@
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/ui/moviedetails/widgets/genres.dart" />
         <option value="$PROJECT_DIR$/lib/ui/moviedetails/widgets/additional_info.dart" />
-        <option value="$PROJECT_DIR$/lib/database/favorite_movie_database.dart" />
         <option value="$PROJECT_DIR$/lib/ui/moviedetails/movie_details_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart" />
         <option value="$PROJECT_DIR$/lib/network/request/requests.dart" />
         <option value="$PROJECT_DIR$/lib/ui/tab/upcoming_tab.dart" />
         <option value="$PROJECT_DIR$/lib/ui/tab/top_rating_tab.dart" />
@@ -135,6 +129,9 @@
         <option value="$PROJECT_DIR$/lib/ui/tab/now_playing_tab.dart" />
         <option value="$PROJECT_DIR$/lib/ui/navdraweritemscreens/favorites_screen.dart" />
         <option value="$PROJECT_DIR$/lib/ui/tab/base_tab.dart" />
+        <option value="$PROJECT_DIR$/lib/database/favorite_movie_database.dart" />
+        <option value="$PROJECT_DIR$/lib/util/util.dart" />
+        <option value="$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart" />
       </list>
     </option>
   </component>
@@ -160,8 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -222,12 +218,19 @@
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="tab" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="flutter_movie_browser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_movie_browser" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -435,22 +438,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/ui/navdraweritemscreens/licences_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/navdraweritemscreens/settings_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/strings.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -629,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="221" column="10" lean-forward="false" selection-start-line="221" selection-start-column="10" selection-end-line="221" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -713,35 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ui/moviedetails/movie_details_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="83" column="22" lean-forward="true" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/database/favorite_movie_database.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/network/request/requests.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
           <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,14 +745,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/moviedetails/movie_details_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/database/favorite_movie_database.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui/tab/base_tab.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="127" column="24" lean-forward="false" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
+        <state relative-caret-position="77">
+          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#4549#4768#0" expanded="false" />
-            <element signature="e#4819#5079#0" expanded="false" />
+            <element signature="e#4252#4471#0" expanded="false" />
+            <element signature="e#4522#4782#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/util.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../flutter/bin/cache/pkg/sky_engine/lib/core/function.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ui/moviedetails/widgets/bottom_buttons.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="97" column="85" lean-forward="false" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

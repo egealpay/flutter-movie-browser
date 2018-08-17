@@ -62,11 +62,17 @@ class FavoriteMovieDatabase {
         [id, title, overview, posterPath]);
     return result;
   }
+  
+  Future<int> removeFavoriteMovie(int id) async{
+    var dbHelper = await db;
+    var result = dbHelper.rawDelete("DELETE FROM $TABLE_NAME WHERE $ID = ?", [id]);
+    return result;
+  }
 
-  checkMovieExist(int id) async {
+  Future<bool> checkMovieExist(int id) async {
     var dbHelper = await db;
     var result = await dbHelper.rawQuery("SELECT * FROM $TABLE_NAME WHERE $ID = ?", [id]);
-    return result.length;
+    return result.length == 1;
   }
 
   Future close() async {
