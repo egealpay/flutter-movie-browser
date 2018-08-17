@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_movie_browser/network/request/requests.dart';
 import 'package:flutter_movie_browser/network/response/detail/movie_details_response.dart';
+
 import 'package:flutter_movie_browser/ui/moviedetails/widgets/bottom_buttons.dart';
 import 'package:flutter_movie_browser/ui/moviedetails/widgets/genres.dart';
 import 'package:flutter_movie_browser/ui/moviedetails/widgets/additional_info.dart';
+import 'package:flutter_movie_browser/ui/moviedetails/widgets/overview_widget.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
@@ -80,7 +83,7 @@ class DetailsWidget extends StatelessWidget {
                 movieDetails.releaseDate,
                 movieDetails.runtime.toString(),
                 movieDetails.budget.toString()),
-            Text(movieDetails.overview),
+            OverviewWidget(movieDetails.overview),
             Container(
                 margin: EdgeInsets.only(top: 16.0),
                 child: BottomButtonsWidget(id, movieDetails))

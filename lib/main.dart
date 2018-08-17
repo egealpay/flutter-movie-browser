@@ -74,7 +74,7 @@ class NavigationDrawer extends StatelessWidget {
   }
 
   ListTile listTileFactory(IconData iconData, String title,
-      BuildContext context, StatelessWidget screen) {
+      BuildContext context, Widget screen) {
     return ListTile(
       leading: Icon(iconData),
       title: Text(title),
