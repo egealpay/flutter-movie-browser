@@ -1,8 +1,7 @@
-# flutter_movie_browser
+# Flutter Movie Browser
 
-A new Flutter application.
+Simple movie browser application, built by Flutter framework.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![Alt-Text](/ss1-new.jpg)
+![Alt-Text](/ss2-new.jpg)
+![Alt-Text](/ss3-new.jpg)
